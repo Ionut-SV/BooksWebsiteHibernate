@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image: url("images/books.jpg");
+	background-repeat: repeat;
+	margin: 0%;
+}
+
+h1 {
+	color: white;
+	margin: 1.5%;
+}
+
+div{
+	margin-top: 15%;
+	margin-bottom: 20%;
+	margin-left: 40%;
+	margin-right:40%;
+	background-color: black;
+	border-style: solid;
+	border-radius: 5%;
+	opacity: 93%;
+}

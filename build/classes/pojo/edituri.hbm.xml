@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pojo.edituri" table="edituri"
+		catalog="web_carti" optimistic-lock="version">
+		<id name="ideditura" type="java.lang.Long">
+			<column name="ideditura" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="autori" class="pojo.autori"
+			fetch="select">
+			<column name="idautor" />
+		</many-to-one>
+		<many-to-one name="carti" class="pojo.carti"
+			fetch="select">
+			<column name="idcarte" />
+		</many-to-one>
+		<property name="nume_editura" type="string">
+			<column name="nume_editura" length="45" />
+		</property>
+		<property name="data_publicarii" type="string">
+			<column name="data_publicarii" length="45" />
+		</property>
+		<property name="copii_vandute" type="java.lang.Integer">
+			<column name="copii_vandute" length="45" />
+		</property>
+		<property name="tara" type="string">
+			<column name="tara" length="45" />
+		</property>
+	</class>
+</hibernate-mapping>

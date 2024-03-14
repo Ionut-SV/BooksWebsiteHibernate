@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pojo.carti" table="carti" catalog="web_carti"
+		optimistic-lock="version">
+		<id name="idcarte" type="java.lang.Long">
+			<column name="idcarte" />
+			<generator class="identity" />
+		</id>
+		<property name="titlu" type="string">
+			<column name="titlu" length="45" />
+		</property>
+		<property name="categorie" type="string">
+			<column name="categorie" length="45" />
+		</property>
+		<property name="rating" type="java.lang.Float">
+			<column name="rating" length="45" />
+		</property>
+		<set name="edituri" table="edituri" inverse="true"
+			lazy="true" fetch="select">
+			<key>
+				<column name="idcarte" />
+			</key>
+			<one-to-many class="pojo.edituri" />
+		</set>
+	</class>
+</hibernate-mapping>

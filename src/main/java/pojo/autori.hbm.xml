@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pojo.autori" table="autori" catalog="web_carti"
+		optimistic-lock="version">
+		<id name="idautor" type="java.lang.Long">
+			<column name="idautor" />
+			<generator class="identity" />
+		</id>
+		<property name="nume" type="string">
+			<column name="nume" length="45" />
+		</property>
+		<property name="prenume" type="string">
+			<column name="prenume" length="45" />
+		</property>
+		<property name="varsta" type="java.lang.Float">
+			<column name="varsta" length="45" />
+		</property>
+		<property name="gen" type="string">
+			<column name="gen" length="45" />
+		</property>
+		<set name="edituri" table="edituri" inverse="true"
+			lazy="true" fetch="select">
+			<key>
+				<column name="idautor" />
+			</key>
+			<one-to-many class="pojo.edituri" />
+		</set>
+	</class>
+</hibernate-mapping>
